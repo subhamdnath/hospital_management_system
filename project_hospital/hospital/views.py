@@ -7,22 +7,20 @@ from .models import *
 
 @csrf_exempt
 def complete_profile(request):
-    if request.method == "GET":
-
-        pp =  PatientProfile.objects.get(patient=request.user)
-        return render(request, "hospital/complete_profile.html",{"patient":pp})
-
     if request.method == "POST":
-        id_patient = request.user.id
+
+        pp =  PatientProfile.objects.get(patient=request.user) 
         emergency_contact = request.POST.get("emergency_contact")
+        id_patient = request.user.id
         user = MyUser.objects.get(id = id_patient)
         pp =  PatientProfile.objects.get(patient=request.user)
         if emergency_contact:
             pp.emergency_contact = emergency_contact
-            pp.save()
-          
+            pp.save()   
+
         messages.success(request, "Profile updated successfully")
         return redirect('home')
+    return render(request, "hospital/complete_profile.html")
     
     
 @csrf_exempt
@@ -119,18 +117,19 @@ def booking(request):
         patient = request.POST.get("patient")
         price = request.POST.get("price")
         booking_date = request.POST.get("booking_date")
-        appointment_date = request.POST.get("doctor_department")
+        appointment_date = request.POST.get("appointment_date")
         appointment_type = request.POST.get("appointment_type")
 
-        doctor_department_object = DoctorAndDepartment.objects.get(id = doctor_department)
-        patient_object = PatientProfile.objects.get(id = patient)
-
+        doctor_department_object = DoctorAndDepartment.objects.get(doctor_and_department_id = doctor_department)
+        patient_object = PatientProfile.objects.get(patient_id = patient)
+        print("////",patient_object)
 
         Booking.objects.create(doctor_department=doctor_department_object,
-                                                patient = patient_object, price=price,
-                                                booking_date = booking_date,
-                                                appointment_date=appointment_date,
-                                                appointment_type=appointment_type)
+                                patient = patient_object, 
+                                price=price,
+                                booking_date = booking_date,
+                                appointment_date=appointment_date,
+                                appointment_type=appointment_type)
     all_booking = Booking.objects.all()
     context = {"all_booking" : all_booking}
 

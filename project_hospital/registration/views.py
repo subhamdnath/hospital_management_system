@@ -17,7 +17,9 @@ def login_user(request):
 
         email = request.POST.get("email")
         password = request.POST.get("password")
+
         if not MyUser.objects.filter(email=email).exists():
+            
             messages.error(request, "Error: Email not exits!")
             return redirect("login_user")            
         user = authenticate(request, email=email, password=password)
@@ -90,11 +92,11 @@ def change_password(request):
 def home(request):
 
     user = request.user
-    patient = PatientProfile.objects.get(patient = user)   
-    context = {"emergency_contact" : patient.emergency_contact}
-    print( patient.emergency_contact)
+    # patient = PatientProfile.objects.get(patient = user)   
+    # context = {"emergency_contact" : patient.emergency_contact}
+    # print( patient.emergency_contact)
     
-    return render(request, "hospital/home.html", context)
+    return render(request, "hospital/home.html")
 
 
 def logout_user(request):
