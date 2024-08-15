@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hospital</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Hospital </h1>
+    
+    <hr>
+
+    <h4> For patient: </h4>
+    
+    {% if emergency_contact %}
+    completed
+    {% else %}
+    <p> 1. Complete your profile: <a href="/hospital/complete-profile/">Click here</a></p>
+    {% endif %}
+
+    <p> 2. Book doctor: <a href="/hospital/booking/">Click here</a></p>
+    <p> 2. Your complete profile: <a href="/hospital/get-profile/">Get profile</a></p>
+    <p> 3. Change password: <a href="/change-password/"> Click here </a></p>
+    <p> 4. Logout: <a href="/"> Click here </a></p>
+
+    <hr>
+
+    <h4> For Doctor: </h4>
+    <p> 1. Complete your profile: <a href="/hospital/doctor-profile/">Click here</a></p>
+    <p> 2. Your complete profile: <a href="/hospital/get-doctor-profile/">Click here</a></p>
+    <p> 2. Change password: <a href="/change-password/"> Click here </a></p>
+    <p> 3. Logout: <a href="/"> Click here </a></p>
+
+    <hr>
+
+    <h4> For Admin: </h4>
+    <p> 1. Complete your profile: <a href="/hospital/admin-profile/">Click here</a></p>
+    <p> 2. Your complete profile: <a href="/hospital/get-doctor-profile/">Click here</a></p>
+    <p> 3. Register department: <a href="/hospital/register-department/">Click here</a></p>
+    <p> 4. Register doctor - department: <a href="/hospital/doctor-department/">Click here</a></p>
+    <p> 2. Change password: <a href="/change-password/"> Click here </a></p>
+    <p> 3. Logout: <a href="/"> Click here </a></p>
+
+    <hr>
+    
+    
+</body>
+</html>

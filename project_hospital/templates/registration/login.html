@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hospital | Login </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>YOUR HOSPITAL | Chandigarh</h1>
+    <h4>Login:</h4>
+
+    <form method="post">
+        {% csrf_token %}
+        
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" required><br><br>
+
+        {% if messages %}
+            {% for i in messages %}
+            <p class="error">{{i}}</p>
+            {% endfor %}
+        {% endif %}
+
+        <button type="submit">Login</button><br>
+
+        <p>Don't have a account yet?
+            <a href="/signup/">Register now</a>
+        </p>
+
+    </form>
+    
+</body>
+</html>

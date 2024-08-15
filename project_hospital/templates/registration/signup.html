@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    {% csrf_token %}
+    <h1>YOUR HOSPITAL | Chandigarh</h1>
+    <h4>SIGN UP:</h4> 
+    
+    <form method="post">
+
+        <label for="name"> Name: </label>
+        <input id="name" name="name" type="text" required><br><br>
+
+        <label for="email"> Email: </label>
+        <input id="email" name="email" type="email" required><br><br>
+
+        <label for="phone_number">Phone number:</label>
+        <input id="phone_number" name="phone_number" type="number" required><br><br>
+
+        <label for="password"> Password: </label>
+        <input id="password" name="password" type="password"><br><br>
+
+        <label for="gender"> Gender: </label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+        
+        <label for="date_of_birth"> Date of birth: </label><br><br>
+        <input id = date_of_birth name="date_of_birth" type="date" required><br><br>
+
+        <label for="blood_group"> Blood group: </label>
+        <input id = "blood_group" name = "blood_group" type="text" required><br><br>
+
+        <label for="location"> Location: </label>
+        <input id="location" name="location" type="text" required><br><br>
+
+        <label for="marital_status"> Marital status: </label>
+        <select id="marital_status" name="marital_status" required>
+            <option value="Married">Married</option>
+            <option value="Single">Single</option>
+            <option value="Others">Others</option>
+        </select><br><br>
+
+        <label for="role"> Job role: </label>
+        <select id="role" name="role" required>
+            <option value="Doctor">Doctor</option>
+            <option value="Patient">Patient</option>
+            <option value="Nurse">Nurse</option>
+            <option value="Admin">Admin</option>
+        </select><br><br>
+
+        {% if messages %}
+            {% for i in messages%}
+            <p class="error">{{i}}</p>
+            {% endfor %}
+        {% endif %}
+
+        <p> Already has an account? <a href="/">Login</a></p>
+
+        <button type="submit">SUBMIT</button><br><br>
+
+    </form>  
+</body>
+</html>

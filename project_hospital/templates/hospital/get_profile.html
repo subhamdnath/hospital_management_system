@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1> Welcome to Your Hospital </h1>
+    <h4> Your profile details:</h4>
+    <p>1. Name: {{user.name}}</p>
+    <p>2. Email ID: {{user.email}}</p>
+    <p>3. Phone number: {{user.phone_number}}</p>
+    <p>4. Gender: {{user.gender}}</p>
+    <p>5. Date of birth: {{user.date_of_birth}}</p>
+    <p>6. Blood group: {{user.blood_group}}</p>
+    <p>7. Location: {{user.location}}</p>
+    <p>8. Marital status: {{user.marital_status}}</p>
+    <p>9. Job role: {{user.role}}</p>
+    <p>10. Patient ID: {{user.id}}</p>
+
+    <p>Go back to home: <a href="/home/">Home</a></p>
+
+</body>
+</html>

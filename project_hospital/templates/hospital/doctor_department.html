@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register doctor - department</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Hospital </h1>
+    <h4>Register doctor and department:</h4>
+    <p>Admin profile: ID-{{user.id}}, role- {{user.role}}</p>
+    <form method="post">
+        
+        <label for="doctor"> Dcotor ID: </label>
+        <input id = "doctor" name = "doctor" type="number"><br><br>
+
+        <label for="doctor_and_department">Doctor and department ID: </label>
+        <input id="doctor_and_department" name="doctor_and_department" type="number" required><br><br>
+
+        <label for="price">Price: </label>
+        <input id="price" name="price" type="number" required><br><br>
+        
+        <button type="submit">Submit</button>
+
+        <p>Go back to home: <a href="/home/">Home</a></p><hr>
+        <h4>Doctor and department details:</h4>
+        <table border="5">
+            <thead>
+                <tr>
+                    <th>sl.no</th>
+                    <th>doctor</th>
+                    <th>doctor_and_department</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in queryset %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.doctor}}</td>
+                    <td>{{i.doctor_and_department}}</td>
+                    <td>{{i.price}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Hospital </h1>
+    <p>Your ID: {{user.id}}</p>
+    <h4> Complete your profile:</h4>
+    <form method="post">
+        
+        <label for="doctor">Doctor ID: </label>
+        <input id="doctor" name="doctor" type="number" required><br><br>
+
+        <label for="experience"> Experience: </label>
+        <input id="experience" name="experience" type="number" required><br><br>
+
+        <label for="specialization">Specialization: </label>
+        <input id="specialization" name="specialization" type="text" required><br><br>
+
+        <label for="doctor_fee">Doctor fee: </label>
+        <input id="doctor_fee" name="doctor_fee" type="number" required><br><br>
+
+        <label for="language">Langauge: </label>
+        <input id="language" name="language" type="text" required><br><br>
+
+        <label for="available_timings">Available timings: </label>
+        <input id="available_timings" name="available_timings" type="text" required><br><br>
+
+
+        <button type="submit">Submit</button>
+        
+    </form>
+</body>
+</html>

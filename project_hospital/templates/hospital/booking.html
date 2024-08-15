@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #070000;
+           
+        }
+        h1 {
+            font-family: lucida fax;
+            color: #131313;
+            padding: 15px 15px;
+            background-color: #78cdc1;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        h4 {
+             font-family: 'Arial', sans-serif;
+   
+        }
+        button {
+            font-family:  'Arial', sans-serif;
+            background-color: #efb106; 
+            color: rgb(15, 14, 14); 
+            padding: 5px 7px; 
+            border: 1.5px solid #e98d8d;
+            border-radius: 5px;
+            
+        }
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Hospital </h1>
+    <h4>Book doctor:</h4>
+    <p>Patient profile: id-{{user.id}}, email- {{user.email}}</p>
+    <form method="post">
+        
+        <label for="doctor_department"> Doctor and department ID: </label>
+        <input id = "doctor_department" name = "doctor_department", type="number" required><br><br>
+
+        <label for="patient"> Patient ID: </label>
+        <input id = "patient" name = "patient", type="number" required><br><br>
+
+        <label for="price"> Price </label>
+        <input id = "price" name = "price", type="number" required><br><br>
+
+        <label for="booking_date"> Booking date: </label>
+        <input id = "booking_date" name = "booking_date", type="date" required><br><br>
+
+        <label for="appointment_date"> Appointment date: </label>
+        <input id = "appointment_date" name = "appointment_date", type="date" required><br><br>
+
+        <label for="appointment_type"> Booking date: </label>
+        <select id = "appointment_type" name="appointment_type" required>
+            <option value="Digital consult">Digital consult</option>
+            <option value="Hospital visit">Hospital visit</option>
+        
+        </select><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+        <p>Go back to home: <a href="/home/">Home</a></p><hr>
+
+        <h4> All registered departments: </h4>
+        <table border = "5">
+            <thead>
+                <tr> 
+                    <th>sl no.</th>
+                    <th>Dcotor and Department </th>
+                    <th>patient</th>
+                    <th>Price</th>
+                    <th>booking_date</th>
+                    <th>appointment_date</th>
+                    <th>appointment_type</th>
+
+                </tr>   
+            </thead>
+            <tbody>
+                {% for i in all_booking %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.patient}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.booking_date}}</td>
+                    <td>{{i.appointment_date}}</td>
+                    <td>{{i.appointment_type}}</td>
+                         
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    
+</body>
+</html>
